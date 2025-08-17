@@ -11,6 +11,23 @@ contract Storage {
 
     uint256 number;
 
+    struct People {
+        uint256 favNumber;
+        string name;
+    }
+
+   
+    People[] public people;
+
+    function addPerson(string memory _name, uint256 _favNumber) public {
+        people.push(People ({favNumber: _favNumber , name: _name}));
+    }
+
+    function retrievePeopleCount() public view returns (uint256){
+        return  people.length;
+
+    }
+    
     /**
      * @dev Store value in variable
      * @param num value to store
